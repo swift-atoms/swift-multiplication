@@ -3,7 +3,9 @@ public import Polarity
 /// The identity of multiplication, independent of its operands and result.
 ///
 /// A domain supplies any constraints beyond the reusable fixed-width kernels.
-public enum Multiplication {
+public enum Multiplication {}
+
+extension Multiplication {
 
     public enum Error: Swift.Error, Hashable, Sendable {
         case overflow
