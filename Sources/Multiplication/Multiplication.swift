@@ -1,8 +1,8 @@
 public import Polarity
 
-/// The identity of multiplication, independent of its operands and result.
-///
-/// A domain supplies any constraints beyond the reusable fixed-width kernels.
+
+
+
 public enum Multiplication {}
 
 extension Multiplication {
@@ -43,8 +43,8 @@ extension Multiplication {
 }
 
 extension Multiplication {
-    /// Multiplication for values represented by an unsigned magnitude and
-    /// binary polarity.
+
+
     public enum Signed {}
 }
 
