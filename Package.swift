@@ -6,8 +6,8 @@ let package = Package(
     platforms: [.macOS(.v27), .iOS(.v27), .tvOS(.v27), .watchOS(.v27), .visionOS(.v27)],
     products: [
         .library(name: "Multiplication", targets: ["Multiplication"]),
-        .library(name: "Multiplication Standard Library Integration", targets: ["Multiplication Standard Library Integration"]),
-        .library(name: "Multiplication Foundation Library Integration", targets: ["Multiplication Foundation Library Integration"]),
+
+        .library(name: "Multiplication Foundation Integration", targets: ["Multiplication Foundation Integration"]),
         .library(name: "Multiplication Test Support", targets: ["Multiplication Test Support"]),
     ],
     dependencies: [
@@ -24,20 +24,13 @@ let package = Package(
             ],
             path: "Sources/Multiplication"
         ),
+        
         .target(
-            name: "Multiplication Standard Library Integration",
+            name: "Multiplication Foundation Integration",
             dependencies: [
                 .target(name: "Multiplication"),
             ],
-            path: "Sources/Multiplication Standard Library Integration"
-        ),
-        .target(
-            name: "Multiplication Foundation Library Integration",
-            dependencies: [
-                .target(name: "Multiplication"),
-                .target(name: "Multiplication Standard Library Integration"),
-            ],
-            path: "Sources/Multiplication Foundation Library Integration"
+            path: "Sources/Multiplication Foundation Integration"
         ),
         .target(
             name: "Multiplication Test Support",
@@ -52,8 +45,7 @@ let package = Package(
                 .target(name: "Multiplication"),
                 .product(name: "Polarity", package: "swift-polarity"),
                 .target(name: "Multiplication Test Support"),
-                .target(name: "Multiplication Standard Library Integration"),
-                .target(name: "Multiplication Foundation Library Integration"),
+                .target(name: "Multiplication Foundation Integration"),
             ],
             path: "Tests/Multiplication Tests"
         ),
