@@ -7,7 +7,7 @@ public enum Multiplication {}
 
 extension Multiplication {
 
-    public enum Error: Swift.Error, Hashable, Sendable {
+    public enum Error: Swift::Error, Hashable, Sendable {
         case overflow
     }
 
