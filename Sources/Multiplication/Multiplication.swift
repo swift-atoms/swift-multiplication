@@ -1,8 +1,5 @@
 public import Polarity
 
-
-
-
 public enum Multiplication {}
 
 extension Multiplication {
@@ -43,7 +40,6 @@ extension Multiplication {
 }
 
 extension Multiplication {
-
 
     public enum Signed {}
 }

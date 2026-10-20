@@ -14,28 +14,28 @@ let package = Package(
         .package(
             url: "https://github.com/swift-atoms/swift-polarity.git",
             branch: "main"
-        ),
+        )
     ],
     targets: [
         .target(
             name: "Multiplication",
             dependencies: [
-                .product(name: "Polarity", package: "swift-polarity"),
+                .product(name: "Polarity", package: "swift-polarity")
             ],
             path: "Sources/Multiplication"
         ),
-        
+
         .target(
             name: "Multiplication Foundation Integration",
             dependencies: [
-                .target(name: "Multiplication"),
+                .target(name: "Multiplication")
             ],
             path: "Sources/Multiplication Foundation Integration"
         ),
         .target(
             name: "Multiplication Test Support",
             dependencies: [
-                .target(name: "Multiplication"),
+                .target(name: "Multiplication")
             ],
             path: "Tests/Support"
         ),
@@ -53,14 +53,15 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    target.swiftSettings = (target.swiftSettings ?? []) + [
-        .strictMemorySafety(),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableUpcomingFeature("InferIsolatedConformances"),
-        .enableExperimentalFeature("Lifetimes"),
-        .treatAllWarnings(as: .error),
-    ]
+    target.swiftSettings =
+        (target.swiftSettings ?? []) + [
+            .strictMemorySafety(),
+            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("InternalImportsByDefault"),
+            .enableUpcomingFeature("MemberImportVisibility"),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances"),
+            .enableExperimentalFeature("Lifetimes"),
+            .treatAllWarnings(as: .error),
+        ]
 }
