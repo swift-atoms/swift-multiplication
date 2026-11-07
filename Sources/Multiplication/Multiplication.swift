@@ -4,9 +4,6 @@ public enum Multiplication {}
 
 extension Multiplication {
 
-    public enum Error: Swift::Error, Hashable, Sendable {
-        case overflow
-    }
 
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
@@ -40,8 +37,6 @@ extension Multiplication {
 }
 
 extension Multiplication {
-
-    public enum Signed {}
 }
 
 extension Multiplication.Signed {
@@ -79,5 +74,14 @@ extension Multiplication.Signed {
         magnitude: Storage
     ) -> (polarity: Polarity, magnitude: Storage) {
         (magnitude == .zero ? .positive : polarity, magnitude)
+    }
+}
+
+extension Multiplication {
+
+    @inlinable
+    public static func augmented<T: FloatingPoint>(_ lhs: T, _ rhs: T) -> (head: T, tail: T) {
+        let head = lhs * rhs
+        return (head, (-head).addingProduct(lhs, rhs))
     }
 }
