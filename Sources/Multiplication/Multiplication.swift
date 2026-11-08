@@ -4,7 +4,6 @@ public enum Multiplication {}
 
 extension Multiplication {
 
-
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
         _ lhs: Value,
